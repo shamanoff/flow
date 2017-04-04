@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title sec:authentication="principal.username"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+   <!-- <style>
+        body{
+            background-color: #f0f0f0;
+        }
+        .top-bar{
+            background-color: black;
+            color: white;
+            padding:0 2rem 0 2rem;
+        }
+        #btnOut{
+            margin: .3rem 0rem 0 1rem;
+        }
+        textarea{
+            height:10rem;
+        }
+        #bd{
+            background-color: white;
+            padding-top: 3rem;
+        }
+        #banner{
+            background-image: url("../webapp/anonymous2.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width:100%;
+            height:45%;
+            -webkit-background-size:cover;
+            background-size:cover;
+        }
+    </style>-->
+
+
+</head>
+<body>
+<div class="expanded row">
+    <div class="top-bar">
+        <div class="top-bar-title">
+            <h3><i class="fi-skull"></i> Anonymus</h3>
+        </div>
+        <div class="top-bar-right">
+
+                    <!--<h4 class="fi-torso" sec:authentication="principal.username"></h4>-->
+                  Logged user: <span sec:authentication="name"></span>
+                    <!--Roles: <span sec:authentication="principal.authoritie"></span>-->
+
+                    <a href="/logout" id="btnOut" class="secondary hollow button"><i class="fi-key"></i> Log Out</a>
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+<div id="banner" class="expanded row"></div>
+
+
+<div id="bd" class="row">
+
+
+    <div class="small-12 medium-8 columns">
+
+
+
+    </div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.js"></script>
+
+<script>
+    $(document).foundation();
+
+    //    var today = new Date();
+    //    var dd = today.getDate();
+    //    var mm = today.getMonth()+1; //January is 0!
+    //    var yyyy = today.getFullYear();
+    //
+    //    if(dd<10) {
+    //        dd='0'+dd
+    //    }
+    //
+    //    if(mm<10) {
+    //        mm='0'+mm
+    //    }
+    //
+    //    today = yyyy+'/'+mm+'/'+dd;
+    //    document.write(today);
+
+</script>
+
+
+<!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Работа с клиентами-->
+        <!--<span class="caret"></span></a>-->
+    <!--<ul class="dropdown-menu">-->
+        <!--<li><a th:href="@{/client}">Заведение клиентов</a></li>-->
+        <!--<li><a th:href="@{/training}">Запись на тренировку</a></li>-->
+        <!--<li><a th:href="@{/sale}">Продажи</a></li>-->
+        <!--<li><a th:href="@{/events}">Расписание</a></li>-->
+        <!--<li><a th:href="@{/duty}">Дежурства</a></li>-->
+    <!--</ul>-->
+<!--</li>-->
+<!--<li sec:authorize="hasRole('ROLE_TRAINER')">-->
+    <!--<a th:href="@{/end-of-day}">Отчет за смену</a>-->
+<!--</li>-->
+</body>
+</html>
