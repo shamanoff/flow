@@ -23,10 +23,10 @@ public class User implements UserDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "user_id")
-  private Long userId;
+  private Long id;
   @Column(name = "user_name")
   private String username;
-  @Column
+  @Column(name = "user_password")
   private String password;
 
   @Transient
@@ -48,7 +48,7 @@ public class User implements UserDetails {
   @Override
   public String toString() {
     return "User{" +
-            "userId=" + userId +
+            "id=" + id +
             ", username='" + username + '\'' +
             ", password=" + password +
             '}';
@@ -59,14 +59,14 @@ public class User implements UserDetails {
     if (this == o) return true;
     if (!(o instanceof User)) return false;
     User user = (User) o;
-    return Objects.equals(getUserId(), user.getUserId()) &&
+    return Objects.equals(getId(), user.getId()) &&
             Objects.equals(getUsername(), user.getUsername()) &&
             Objects.equals(getPassword(), user.getPassword());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getUserId(), getUsername(),  getPassword());
+    return Objects.hash(getId(), getUsername(),  getPassword());
   }
 
   @Override
